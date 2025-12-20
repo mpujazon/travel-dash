@@ -1,14 +1,257 @@
 <!doctype html>
 <html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Travel Dash</title>
+</head>
+
+<body>
+  <!DOCTYPE html>
+
+  <html class="light" lang="en">
+
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Travel Dash</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>City Travel Dashboard</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap"
+      rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Tailwind Configuration -->
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#136dec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101822",
+            },
+            fontFamily: {
+              "display": ["Plus Jakarta Sans", "sans-serif"]
+            },
+            borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+          },
+        },
+      }
+    </script>
+    <style>
+      body {
+        font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;
+      }
+
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        vertical-align: middle;
+      }
+    </style>
   </head>
-  <body>
-    
-    <!-- <div id="app"></div> -->
-    <script type="module" src="/src/main.ts"></script>
+
+  <body
+    class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-white transition-colors duration-200">
+    <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+      <!-- Navbar -->
+      <header
+        class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f2f4] dark:border-b-gray-700 bg-white dark:bg-background-dark px-10 py-3">
+        <div class="flex items-center gap-4">
+          <div class="size-10 flex items-center justify-center bg-primary/10 rounded-lg text-primary">
+            <span class="material-symbols-outlined text-2xl">travel_explore</span>
+          </div>
+          <h2 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">TravelDash</h2>
+        </div>
+        <div class="flex flex-1 justify-end gap-8">
+          <div class="hidden md:flex items-center gap-9">
+            <a class="text-[#111418] dark:text-gray-200 text-sm font-medium leading-normal hover:text-primary transition-colors"
+              href="#">Home</a>
+            <a class="text-[#111418] dark:text-gray-200 text-sm font-medium leading-normal hover:text-primary transition-colors"
+              href="#">Favorites</a>
+            <a class="text-[#111418] dark:text-gray-200 text-sm font-medium leading-normal hover:text-primary transition-colors"
+              href="#">About</a>
+          </div>
+          <button
+            class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-blue-600 transition-colors">
+            <span class="truncate">Sign In</span>
+          </button>
+        </div>
+      </header>
+      <!-- Main Layout -->
+      <main class="flex-1 flex justify-center py-5 px-4 md:px-10 lg:px-40">
+        <div class="flex flex-col max-w-[1200px] flex-1 gap-8">
+          <!-- Search Hero Section -->
+          <section class="flex flex-col gap-4">
+            <div
+              class="flex flex-col gap-6 bg-cover bg-center bg-no-repeat rounded-xl items-center justify-center p-8 md:p-12 relative overflow-hidden"
+              data-alt="Abstract map gradient background"
+              style='background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBcmzLLdZ5MZSnXluQwRvobJEW5OPlq6-vyAfGkzzdGg5I-3Hezq5dovE6lt9uop33i2yNgmY9W7U410dsmgLP7Ewra-dDjafQaGyWlCMHrIaQRMe2S_LMHHAs1glLv36EnooccxzeizrmIlsdPt8lwhIlLThUETxnO_DLQWCCOzFsG6XMaDMiFBF2Z1Z3jJy1Rxwiwx9oBJzeq9AwQoDRM-h_TIPSN_zeJ24u5ty3lKwKIOFx-ic2x7b8DcGcZaIy83IGOKP6ohU0");'>
+              <div class="flex flex-col gap-2 text-center z-10">
+                <h1 class="text-white text-3xl md:text-5xl font-black leading-tight tracking-[-0.033em]">
+                  Explore the world
+                </h1>
+                <p class="text-gray-200 text-sm md:text-base font-medium">
+                  Find weather, stats, and photos for any city.
+                </p>
+              </div>
+              <label class="flex flex-col w-full max-w-[540px] z-10">
+                <div
+                  class="flex w-full items-stretch rounded-xl h-14 bg-white dark:bg-gray-800 shadow-lg overflow-hidden transition-all focus-within:ring-2 focus-within:ring-primary/50">
+                  <div class="flex items-center justify-center pl-4 pr-2 text-gray-500 dark:text-gray-400">
+                    <span class="material-symbols-outlined">search</span>
+                  </div>
+                  <input
+                    class="flex w-full min-w-0 flex-1 resize-none bg-transparent text-[#111418] dark:text-white placeholder:text-gray-400 focus:outline-0 px-2 text-base font-normal leading-normal"
+                    placeholder="Enter city name (e.g. Paris, Tokyo)..." value="Paris" />
+                  <div class="flex items-center justify-center pr-2">
+                    <button
+                      class="flex cursor-pointer items-center justify-center rounded-lg h-10 px-6 bg-primary text-white text-sm font-bold shadow-sm hover:bg-blue-600 transition-colors">
+                      Discover
+                    </button>
+                  </div>
+                </div>
+              </label>
+            </div>
+          </section>
+          <!-- Dashboard Grid -->
+          <section class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <!-- Left Column: City Image (Takes up 8/12 on large screens) -->
+            <div class="lg:col-span-8 flex flex-col gap-4">
+              <!-- City Header Card -->
+              <div
+                class="group relative flex flex-col justify-end overflow-hidden rounded-xl min-h-[400px] lg:h-full bg-gray-200 dark:bg-gray-800 shadow-sm transition-transform hover:shadow-md">
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                  data-alt="Panoramic view of Paris with Eiffel Tower"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC-qaKFuQZF5a2X6Rg8LtP20Cas4i1ix0KrALIx9nqZoZgM9BoH-lcXRvXOM5bFStGwsudYLiz9LtEq8H7nRhhluzEqdUXVH3ur-ngX9wtDNPzygDtkL4kUeLzGnC4sr3uT4o1iaL-y8BrSrr0GRJjEdvzieIfTWoGFvjZf0t6WLoXy1hWsHIGsie6ZxrEFu1tolFr5uUhkMrMw1T-iPgj9dOGIDYZV2w5qtY4pYMfHRUE4PzdU1dQdkUIuafFldenYd1MWZmbsbwM");'>
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                <div class="relative p-8 flex flex-col gap-2">
+                  <div class="flex items-center gap-2 mb-1">
+                    <span class="material-symbols-outlined text-white/90">location_on</span>
+                    <span class="text-white/90 text-sm font-bold uppercase tracking-wider">Destination</span>
+                  </div>
+                  <h2 class="text-white text-4xl md:text-5xl font-bold leading-tight tracking-tight">Paris, France</h2>
+                  <p class="text-gray-200 max-w-lg mt-2 line-clamp-2">
+                    The capital of France, a major European city and a global center for art, fashion, gastronomy and
+                    culture.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Right Column: Stats & Info (Takes up 4/12 on large screens) -->
+            <div class="lg:col-span-4 flex flex-col gap-6">
+              <!-- Weather Card -->
+              <div
+                class="flex flex-col p-6 rounded-xl border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm">
+                <div class="flex items-center justify-between mb-4">
+                  <h3 class="text-[#111418] dark:text-white text-lg font-bold">Current Weather</h3>
+                  <span
+                    class="px-2 py-1 rounded bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 text-xs font-bold">Live</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex flex-col">
+                    <span class="text-5xl font-black text-[#111418] dark:text-white tracking-tight">24°</span>
+                    <span class="text-gray-500 dark:text-gray-400 font-medium mt-1">Mostly Sunny</span>
+                  </div>
+                  <div class="size-20 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+                    <span class="material-symbols-outlined text-[48px]">sunny</span>
+                  </div>
+                </div>
+                <div class="mt-6 grid grid-cols-2 gap-4 border-t border-gray-100 dark:border-gray-700 pt-4">
+                  <div class="flex flex-col gap-1">
+                    <span class="text-xs text-gray-400 uppercase font-bold">Humidity</span>
+                    <span class="text-sm font-semibold dark:text-gray-200">42%</span>
+                  </div>
+                  <div class="flex flex-col gap-1">
+                    <span class="text-xs text-gray-400 uppercase font-bold">Wind</span>
+                    <span class="text-sm font-semibold dark:text-gray-200">12 km/h</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Country Info Card -->
+              <div
+                class="flex flex-col p-6 rounded-xl border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm">
+                <h3 class="text-[#111418] dark:text-white text-lg font-bold mb-4">Country Details</h3>
+                <div class="flex items-center gap-4 mb-6">
+                  <div
+                    class="size-14 rounded-full bg-gray-200 overflow-hidden border-2 border-white dark:border-gray-600 shadow-sm"
+                    data-alt="Flag of France"
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBdbiTiivRXTUu0-_N1wwWd5gchyyP8K7tDJCPT6cxzYmUPeuxRDo_DK6DXtEK7fz3Mqldswc5tOxpGoB11eK7crdUnNzHgIfZ6SocgonHuRmWbe5E6jsRgmtMpFzxyzjmx-IvwRvC6yPxYBMAMB2tWOP31tS6xK1DOJT1pgdSAwGYs825sD_-NyydjUrs5TP-cSgKVLZZiKBMLGNpvfZh6PNLjOL7OsxMNH2OKr531GFlo3N6I21xCTZtTOLN2k2ltSPv91Sbkfqc'); background-size: cover; background-position: center;">
+                  </div>
+                  <div>
+                    <p class="text-xl font-bold text-[#111418] dark:text-white">France</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Western Europe</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Quick Stats Grid -->
+              <div class="grid grid-cols-2 gap-4">
+                <!-- Population -->
+                <div
+                  class="flex flex-col gap-3 rounded-xl p-5 border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm">
+                  <div
+                    class="size-10 rounded-full bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-primary">
+                    <span class="material-symbols-outlined">groups</span>
+                  </div>
+                  <div>
+                    <p class="text-gray-500 dark:text-gray-400 text-xs font-bold uppercase mb-1">Population</p>
+                    <p class="text-[#111418] dark:text-white text-xl font-bold leading-tight">2.1M</p>
+                  </div>
+                </div>
+                <!-- Currency -->
+                <div
+                  class="flex flex-col gap-3 rounded-xl p-5 border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm">
+                  <div
+                    class="size-10 rounded-full bg-purple-50 dark:bg-purple-900/30 flex items-center justify-center text-purple-600 dark:text-purple-400">
+                    <span class="material-symbols-outlined">payments</span>
+                  </div>
+                  <div>
+                    <p class="text-gray-500 dark:text-gray-400 text-xs font-bold uppercase mb-1">Currency</p>
+                    <p class="text-[#111418] dark:text-white text-xl font-bold leading-tight">Euro (€)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Bottom Random Suggestion -->
+          <section class="mt-8">
+            <div
+              class="rounded-xl bg-primary/5 dark:bg-gray-800 border border-primary/10 dark:border-gray-700 p-6 flex flex-col md:flex-row items-center justify-between gap-6">
+              <div class="flex items-center gap-4">
+                <div class="bg-primary/20 p-3 rounded-full text-primary">
+                  <span class="material-symbols-outlined">shuffle</span>
+                </div>
+                <div>
+                  <h4 class="text-lg font-bold text-[#111418] dark:text-white">Not sure where to go?</h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">Let us pick a random destination for your next
+                    adventure.</p>
+                </div>
+              </div>
+              <button
+                class="flex min-w-[160px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-[#111418] dark:text-white text-sm font-bold shadow-sm hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors">
+                Surprise Me
+              </button>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
   </body>
+
+  </html>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
 </html>
