@@ -1,5 +1,20 @@
 export interface CountryData{
-    flagSvg: string,
-    currency: string,
-    population: string
+    name:{
+        common: string
+    },
+    flags:{
+        svg: string
+    },
+    subregion: string,
+    currencies: Record<string, { name: string; symbol: string }>,
+    population: number,
+
+}
+
+export interface WeatherData{
+    temperature: string,
+    description: string,
+    iconSrc: string
+    humidity: string,
+    windSpeed: string,
 }
