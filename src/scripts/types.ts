@@ -26,3 +26,11 @@ export interface WeatherData{
         speed: number
     }
 }
+
+export interface PhotoData{
+    urls: {
+        regular: string,
+        small: string
+    },
+    alt_description: string
+}
