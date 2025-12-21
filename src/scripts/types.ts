@@ -7,14 +7,22 @@ export interface CountryData{
     },
     subregion: string,
     currencies: Record<string, { name: string; symbol: string }>,
-    population: number,
-
+    population: number
 }
 
 export interface WeatherData{
-    temperature: string,
-    description: string,
-    iconSrc: string
-    humidity: string,
-    windSpeed: string,
+    main:{
+        temp: number,
+        humidity: number
+    },
+    sys:{
+        country: string
+    },
+    weather:{
+        description: string,
+        icon: string
+    }[],
+    wind: {
+        speed: number
+    }
 }
