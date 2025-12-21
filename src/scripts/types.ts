@@ -1,36 +1,36 @@
 export interface CountryData{
     name:{
-        common: string
-    },
+        common: string;
+    };
     flags:{
-        svg: string
-    },
-    subregion: string,
-    currencies: Record<string, { name: string; symbol: string }>,
-    population: number
+        svg: string;
+    };
+    subregion: string;
+    currencies: Record<string, { name: string; symbol: string }>;
+    population: number;
 }
 
 export interface WeatherData{
     main:{
-        temp: number,
-        humidity: number
-    },
+        temp: number;
+        humidity: number;
+    };
     sys:{
-        country: string
-    },
+        country: string;
+    };
     weather:{
-        description: string,
-        icon: string
-    }[],
+        description: string;
+        icon: string;
+    }[];
     wind: {
-        speed: number
+        speed: number;
     }
 }
 
 export interface PhotoData{
     urls: {
-        regular: string,
-        small: string
-    },
-    alt_description: string
+        regular: string;
+        small: string;
+    };
+    alt_description: string | null;
 }
