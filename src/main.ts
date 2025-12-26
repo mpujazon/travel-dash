@@ -1,4 +1,4 @@
-import { fetchWeather } from "./services/api";
+import { fetchWeather } from "./scripts/services/weatherAPI";
 
 const handleSubmit = async ()=> {
     const searchTerm = cityInput?.value.trim();

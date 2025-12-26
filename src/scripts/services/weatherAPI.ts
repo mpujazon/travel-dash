@@ -1,8 +1,6 @@
-import type { WeatherData } from "../scripts/types";
+import type { WeatherData } from "../types";
 
 const WEATHER_KEY = import.meta.env.VITE_WEATHER_API_KEY;
-const UNSPLASH_KEY = import.meta.env.VITE_UNSPLASH_ACCESS_KEY;
-
 
 export const fetchWeather = async (city: string) :Promise<WeatherData> => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${WEATHER_KEY}`;
@@ -13,4 +11,3 @@ export const fetchWeather = async (city: string) :Promise<WeatherData> => {
 
     return await response.json();
 }
-
