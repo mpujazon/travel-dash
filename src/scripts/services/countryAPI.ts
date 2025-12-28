@@ -1,6 +1,6 @@
-import type { WeatherData } from "../types";
+import { type CountryData } from '../types';
 
-const fetchCountryDetails = async (countryCode: string): Promise<WeatherData> => {
+export const fetchCountryDetails = async (countryCode: string): Promise<CountryData[]> => {
     const url = `https://restcountries.com/v3.1/alpha/${countryCode}`;
     const response = await fetch(url);
 
