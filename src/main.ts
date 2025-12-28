@@ -1,6 +1,7 @@
 import { fetchCountryDetails } from "./scripts/services/countryAPI";
 import { fetchCityPicture } from "./scripts/services/unsplashAPI";
 import { fetchWeather } from "./scripts/services/weatherAPI";
+import { renderPicture } from "./scripts/ui";
 
 const handleSubmit = async ()=> {
     const searchTerm = cityInput?.value.trim();
@@ -25,7 +26,6 @@ const handleSubmit = async ()=> {
             Weatcher Icon: ${weatherDetails.weather[0].icon}
             Wind Speed: ${weatherDetails.wind.speed}
         `);
-        
 
         console.log(`
             ${countryDetails[0].name.common} Details
@@ -39,6 +39,7 @@ const handleSubmit = async ()=> {
             Description: ${cityPicture.alt_description}
             Urls: ${cityPicture.urls.regular}
             `);
+        renderPicture(cityPicture.urls.regular, cityPicture.alt_description);
     }catch(error){
         console.error('Error: ', error);
     }
