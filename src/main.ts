@@ -1,6 +1,6 @@
 import { fetchCountryDetails } from "./scripts/services/countryAPI";
+import { fetchCityPicture } from "./scripts/services/unsplashAPI";
 import { fetchWeather } from "./scripts/services/weatherAPI";
-import type { CountryData } from "./scripts/types";
 
 const handleSubmit = async ()=> {
     const searchTerm = cityInput?.value.trim();
@@ -9,7 +9,12 @@ const handleSubmit = async ()=> {
     
     try{
         const weatherDetails = await fetchWeather(searchTerm);
-        const countryDetails = await fetchCountryDetails(weatherDetails.sys.country);
+
+        const [countryDetails, cityPicture] = await Promise.all([
+            fetchCountryDetails(weatherDetails.sys.country),
+            fetchCityPicture(searchTerm)
+        ]);
+        
 
         console.log(`
             ${searchTerm} Weather
@@ -28,12 +33,14 @@ const handleSubmit = async ()=> {
             Population: ${countryDetails[0].population}
             Subregion: ${countryDetails[0].subregion}
         `);
-
-            
-            
+        
+        console.log(`
+            City Picture Data
+            Description: ${cityPicture.alt_description}
+            Urls: ${cityPicture.urls.regular}
+            `);
     }catch(error){
         console.error('Error: ', error);
-        
     }
     
 }
