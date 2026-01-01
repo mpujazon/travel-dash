@@ -25,6 +25,7 @@ export interface WeatherData{
     wind: {
         speed: number;
     }
+    name: string;
 }
 
 export interface PhotoData{
