@@ -1,7 +1,7 @@
 import { fetchCountryDetails } from "./scripts/services/countryAPI";
 import { fetchCityPicture } from "./scripts/services/unsplashAPI";
 import { fetchWeather } from "./scripts/services/weatherAPI";
-import { renderCountryDetails, renderPicture } from "./scripts/ui";
+import { renderCountryDetails, renderPicture, renderWeatherDetails } from "./scripts/ui";
 
 const handleSubmit = async ()=> {
     const searchTerm = cityInput?.value.trim();
@@ -15,17 +15,7 @@ const handleSubmit = async ()=> {
             fetchCountryDetails(weatherDetails.sys.country),
             fetchCityPicture(searchTerm)
         ]);
-
-        console.log(`
-            ${searchTerm} Weather
-            Humidity: ${weatherDetails.main.humidity}
-            Temperature: ${weatherDetails.main.temp}
-            Country Code: ${weatherDetails.sys.country}
-            Weather Description: ${weatherDetails.weather[0].description}
-            Weatcher Icon: ${weatherDetails.weather[0].icon}
-            Wind Speed: ${weatherDetails.wind.speed}
-        `);
-
+        renderWeatherDetails(weatherDetails);
         renderCountryDetails(countryDetails[0], weatherDetails.name);
         renderPicture(cityPicture.urls.regular, cityPicture.alt_description);
     }catch(error){

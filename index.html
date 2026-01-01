@@ -160,21 +160,23 @@
                 </div>
                 <div class="flex items-center justify-between">
                   <div class="flex flex-col">
-                    <span class="text-5xl font-black text-[#111418] dark:text-white tracking-tight">24°</span>
-                    <span class="text-gray-500 dark:text-gray-400 font-medium mt-1">Mostly Sunny</span>
+                    <span id="temperature" class="text-5xl font-black text-[#111418] dark:text-white tracking-tight">24°</span>
+                    <span id="weather-description" class="text-gray-500 dark:text-gray-400 font-medium mt-1">Mostly Sunny</span>
                   </div>
-                  <div class="size-20 bg-primary/10 rounded-full flex items-center justify-center text-primary">
-                    <span class="material-symbols-outlined text-[48px]">sunny</span>
+                  <div class="size-20 bg-[#E6E6E6] rounded-full flex items-center justify-center text-primary"
+                    data-alt="Current weather icon"
+                    id="weather-icon"
+                    style="background-image: url('http://openweathermap.org/img/wn/01d@2x.png'); background-size: cover; background-position: center;">
                   </div>
                 </div>
                 <div class="mt-6 grid grid-cols-2 gap-4 border-t border-gray-100 dark:border-gray-700 pt-4">
                   <div class="flex flex-col gap-1">
                     <span class="text-xs text-gray-400 uppercase font-bold">Humidity</span>
-                    <span class="text-sm font-semibold dark:text-gray-200">42%</span>
+                    <span id="humidity" class="text-sm font-semibold dark:text-gray-200">42%</span>
                   </div>
                   <div class="flex flex-col gap-1">
                     <span class="text-xs text-gray-400 uppercase font-bold">Wind</span>
-                    <span class="text-sm font-semibold dark:text-gray-200">12 km/h</span>
+                    <span id="wind" class="text-sm font-semibold dark:text-gray-200">12 km/h</span>
                   </div>
                 </div>
               </div>

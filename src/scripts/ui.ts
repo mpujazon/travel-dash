@@ -1,4 +1,4 @@
-import { type CountryData } from './types';
+import { type CountryData, type WeatherData } from './types';
 export const renderPicture = (url: string, description: string | null): void => {
     const pictureElement = document.getElementById('city-picture');
     pictureElement?.setAttribute('data-alt', description || '');
@@ -24,4 +24,21 @@ export const renderCountryDetails = (countryDetails: CountryData, cityName: stri
     const countryCurrency = document.getElementById('country-currency');
     const {name, symbol} = Object.values(countryDetails.currencies)[0];
     countryCurrency? countryCurrency.textContent = `${name} (${symbol})` : '';
+}
+
+export const renderWeatherDetails = (weatherDetails: WeatherData) => {
+    const temperatureElement = document.getElementById('temperature');
+    temperatureElement? temperatureElement.textContent = `${Math.floor(weatherDetails.main.temp-273.15)} ºC` : '';
+
+    const descriptionElement = document.getElementById('weather-description');
+    descriptionElement? descriptionElement.textContent = weatherDetails.weather[0].description : '';
+
+    const humidityElement = document.getElementById('humidity');
+    humidityElement? humidityElement.textContent = `${weatherDetails.main.humidity}%` : '';
+
+    const windElement = document.getElementById('wind');
+    windElement? windElement.textContent = `${(weatherDetails.wind.speed * 1.60934).toFixed(2)} km/h` : '';
+
+    const iconElement = document.getElementById('weather-icon');
+    iconElement? iconElement.setAttribute('style', `background-image: url('http://openweathermap.org/img/wn/${weatherDetails.weather[0].icon}@2x.png'); background-size: cover; background-position: center;`) : '';
 }
