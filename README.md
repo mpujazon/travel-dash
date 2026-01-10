@@ -4,8 +4,7 @@
 
 TypeScript + Vite web app that lets you explore cities around the world. Enter a city (or pick a random one) to see its current weather, country details, and a curated photo. It consumes OpenWeather, REST Countries, and Unsplash APIs and renders a responsive, card-based dashboard.
 
-<!-- Optionally add a demo image to /public and update the path below -->
-<!-- ![Project Demo](/public/demo.webp "Project Demo") -->
+![Project Demo](/public/demo.webp "Project Demo")
 
 ## Project Structure
 
